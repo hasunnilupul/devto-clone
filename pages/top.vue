@@ -56,7 +56,7 @@ export default {
   },
   async fetch() {
     const articles = await fetch(
-      `https://dev.to/api/articles?tag=nuxt&state=rising&page=${this.currentPage}`
+      `https://dev.to/api/articles?tag=nuxt&top=365&page=${this.currentPage}`
     ).then((res) => res.json())
 
     this.articles = this.articles.concat(articles)
@@ -79,7 +79,7 @@ export default {
   },
   head() {
     return {
-      title: 'New Nuxt.js articles'
+      title: 'Top Nuxt.js articles'
     }
   }
 }
@@ -92,7 +92,6 @@ export default {
   padding: 1rem;
   min-height: 100vh;
 }
-
 .article-cards-wrapper {
   display: flex;
   flex-wrap: wrap;
